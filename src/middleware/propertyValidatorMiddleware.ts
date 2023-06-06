@@ -1,9 +1,14 @@
 import type { RequestHandler } from 'express';
 
+// Utility functions to check types
 const isUndefined = (value: any) => typeof value === 'undefined';
 const isNumber = (value: any) => typeof value === 'number';
 const isString = (value: any) => typeof value === 'string';
 
+/**
+ * Middleware to validate property fields, returns a function that can be used
+ * as middleware in express routes.
+ */
 export const propertyValidatorMiddleware = ({
   requiredFields = [],
 }: {
